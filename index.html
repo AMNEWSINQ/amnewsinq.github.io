@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AM News | Latest Philippine News</title>
+
+  <title>AM News | Philippine News & Updates</title>
 
   <style>
     * {
@@ -13,168 +14,651 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      color: #222;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f6f8;
+      color: #171717;
+      line-height: 1.6;
     }
 
+    a {
+      text-decoration: none;
+    }
+
+    /* TOP HEADER */
     header {
-      background: #111;
+      background: #0b0b0b;
       color: white;
-      padding: 18px 20px;
-      text-align: center;
     }
 
-    header h1 {
-      font-size: 30px;
-      letter-spacing: 1px;
+    .top-header {
+      max-width: 1200px;
+      margin: auto;
+      padding: 22px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
     }
 
-    header p {
-      margin-top: 6px;
-      color: #ccc;
-      font-size: 14px;
+    .logo {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: 2px;
     }
 
+    .logo span {
+      color: #e31b23;
+    }
+
+    .tagline {
+      color: #bdbdbd;
+      font-size: 13px;
+    }
+
+    /* NAVIGATION */
     nav {
-      background: #222;
-      text-align: center;
-      padding: 12px;
+      background: #151515;
+      border-top: 1px solid #292929;
+      border-bottom: 1px solid #292929;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      overflow-x: auto;
     }
 
     nav a {
       color: white;
-      text-decoration: none;
-      margin: 0 12px;
       font-size: 14px;
+      font-weight: bold;
+      padding: 15px 0;
+      white-space: nowrap;
     }
 
-    .hero {
-      background: white;
-      padding: 35px 20px;
-      text-align: center;
+    nav a:hover {
+      color: #e31b23;
     }
 
-    .hero h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
+    /* BREAKING NEWS */
+    .breaking {
+      background: #e31b23;
+      color: white;
     }
 
-    .hero p {
-      color: #666;
-      max-width: 650px;
+    .breaking-inner {
+      max-width: 1200px;
       margin: auto;
-      line-height: 1.6;
+      padding: 10px 20px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
     }
 
+    .breaking-label {
+      background: white;
+      color: #e31b23;
+      padding: 4px 9px;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .breaking-text {
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* MAIN CONTAINER */
     .container {
-      max-width: 1000px;
-      margin: 25px auto;
-      padding: 0 15px;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
     }
 
-    .section-title {
-      font-size: 22px;
-      margin-bottom: 15px;
-      border-left: 5px solid #111;
-      padding-left: 10px;
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .hero-main {
+      min-height: 360px;
+      background: linear-gradient(
+        135deg,
+        #151515,
+        #343434
+      );
+      color: white;
+      border-radius: 12px;
+      padding: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: "AM NEWS";
+      position: absolute;
+      top: 35px;
+      right: -15px;
+      font-size: 70px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      transform: rotate(-10deg);
+    }
+
+    .category {
+      display: inline-block;
+      background: #e31b23;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      width: fit-content;
+      text-transform: uppercase;
+    }
+
+    .hero-main h1 {
+      font-size: 36px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      max-width: 700px;
+    }
+
+    .hero-main p {
+      color: #d1d1d1;
+      max-width: 650px;
+      font-size: 15px;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 20px;
+    }
+
+    .side-card {
+      background: white;
+      border-radius: 12px;
+      padding: 22px;
+      border: 1px solid #e3e3e3;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .side-card h3 {
+      font-size: 20px;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .side-card p {
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* SECTION TITLE */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      border-bottom: 2px solid #171717;
+      padding-bottom: 10px;
+    }
+
+    .section-header h2 {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .section-header a {
+      color: #e31b23;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* NEWS GRID */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
     .news-card {
       background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e3e3e3;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+    }
+
+    .news-image {
+      height: 150px;
+      background: linear-gradient(
+        135deg,
+        #222,
+        #555
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.25);
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .news-content {
       padding: 20px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
-    .news-card h3 {
-      margin-bottom: 8px;
-      font-size: 20px;
+    .news-content h3 {
+      font-size: 19px;
+      line-height: 1.3;
+      margin-bottom: 9px;
     }
 
-    .news-card p {
+    .news-content p {
       color: #666;
-      line-height: 1.6;
+      font-size: 14px;
+      margin-bottom: 15px;
     }
 
     .read-more {
-      display: inline-block;
-      margin-top: 12px;
-      color: #111;
+      color: #e31b23;
+      font-size: 13px;
       font-weight: bold;
-      text-decoration: none;
     }
 
-    footer {
-      background: #111;
-      color: #ccc;
-      text-align: center;
-      padding: 25px 15px;
+    /* CATEGORY BOXES */
+    .categories {
       margin-top: 40px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .category-box {
+      background: #111;
+      color: white;
+      padding: 25px 20px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .category-box:hover {
+      background: #e31b23;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0b0b0b;
+      color: #aaa;
+      margin-top: 50px;
+      padding: 40px 20px 25px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    footer h3 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    footer p,
+    footer a {
+      color: #aaa;
       font-size: 13px;
+    }
+
+    footer a {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .copyright {
+      max-width: 1200px;
+      margin: 30px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #292929;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+
+      .top-header {
+        padding: 18px 15px;
+      }
+
+      .logo {
+        font-size: 27px;
+      }
+
+      .tagline {
+        display: none;
+      }
+
+      .nav-inner {
+        padding: 0 15px;
+        gap: 20px;
+      }
+
+      .container {
+        padding: 0 15px;
+        margin-top: 20px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main {
+        min-height: 330px;
+        padding: 25px;
+      }
+
+      .hero-main h1 {
+        font-size: 29px;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .breaking-inner {
+        padding: 9px 15px;
+      }
+    }
+
+    @media (max-width: 450px) {
+
+      .hero-main h1 {
+        font-size: 25px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-header h2 {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
   <header>
-    <h1>AM NEWS</h1>
-    <p>Latest Philippine News & Updates</p>
+    <div class="top-header">
+      <div>
+        <div class="logo">AM<span>NEWS</span></div>
+        <div class="tagline">Philippine News & Current Affairs</div>
+      </div>
+    </div>
+
+    <nav>
+      <div class="nav-inner">
+        <a href="#">HOME</a>
+        <a href="#">NEWS</a>
+        <a href="#">POLITICS</a>
+        <a href="#">COMMUNITY</a>
+        <a href="#">BUSINESS</a>
+        <a href="#">SPORTS</a>
+        <a href="#">OPINION</a>
+        <a href="#">ABOUT</a>
+      </div>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">News</a>
-    <a href="#">Politics</a>
-    <a href="#">Community</a>
-    <a href="#">About</a>
-  </nav>
-
-  <section class="hero">
-    <h2>Your Source for News and Updates</h2>
-    <p>
-      Stay informed with the latest Philippine news, current events,
-      public affairs and important updates.
-    </p>
-  </section>
+  <!-- BREAKING NEWS -->
+  <div class="breaking">
+    <div class="breaking-inner">
+      <div class="breaking-label">BREAKING</div>
+      <div class="breaking-text">
+        AM News — Latest Philippine news, updates and important developments.
+      </div>
+    </div>
+  </div>
 
   <main class="container">
 
-    <h2 class="section-title">Latest News</h2>
+    <!-- HERO -->
+    <section class="hero">
 
-    <article class="news-card">
-      <h3>AM News Latest Updates</h3>
-      <p>
-        Welcome to AM News. This website will feature the latest
-        Philippine news, current events and important public updates.
-      </p>
-      <a href="#" class="read-more">Read More →</a>
-    </article>
+      <article class="hero-main">
+        <span class="category">TOP STORY</span>
 
-    <article class="news-card">
-      <h3>Philippine News & Current Events</h3>
-      <p>
-        Get quick and easy-to-understand updates about important
-        developments happening across the country.
-      </p>
-      <a href="#" class="read-more">Read More →</a>
-    </article>
+        <h1>
+          AM News: Your Trusted Source for Philippine News
+        </h1>
 
-    <article class="news-card">
-      <h3>Stay Updated with AM News</h3>
-      <p>
-        Follow AM News for more updates, stories and information.
-      </p>
-      <a href="#" class="read-more">Read More →</a>
-    </article>
+        <p>
+          Get the latest news, current events, public affairs
+          and important updates from across the Philippines.
+        </p>
+      </article>
+
+      <div class="hero-side">
+
+        <article class="side-card">
+          <span class="category">LATEST</span>
+          <h3>Stay Updated With The Latest Headlines</h3>
+          <p>
+            Quick and easy-to-understand news updates from AM News.
+          </p>
+        </article>
+
+        <article class="side-card">
+          <span class="category">COMMUNITY</span>
+          <h3>Stories That Matter to Filipinos</h3>
+          <p>
+            Local stories, community developments and public updates.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- LATEST NEWS -->
+    <section>
+
+      <div class="section-header">
+        <h2>Latest News</h2>
+        <a href="#">VIEW ALL →</a>
+      </div>
+
+      <div class="news-grid">
+
+        <article class="news-card">
+          <div class="news-image">AM NEWS</div>
+
+          <div class="news-content">
+            <span class="category">NEWS</span>
+
+            <h3>
+              Philippine News & Current Events
+            </h3>
+
+            <p>
+              Get quick and easy-to-understand updates
+              about important developments happening
+              across the country.
+            </p>
+
+            <a href="#" class="read-more">
+              Read More →
+            </a>
+          </div>
+        </article>
+
+
+        <article class="news-card">
+          <div class="news-image">AM NEWS</div>
+
+          <div class="news-content">
+            <span class="category">POLITICS</span>
+
+            <h3>
+              National Politics & Public Affairs
+            </h3>
+
+            <p>
+              Follow important political developments
+              and public affairs affecting Filipinos.
+            </p>
+
+            <a href="#" class="read-more">
+              Read More →
+            </a>
+          </div>
+        </article>
+
+
+        <article class="news-card">
+          <div class="news-image">AM NEWS</div>
+
+          <div class="news-content">
+            <span class="category">COMMUNITY</span>
+
+            <h3>
+              Community Stories & Local Updates
+            </h3>
+
+            <p>
+              Discover local stories, community news
+              and important updates from different areas.
+            </p>
+
+            <a href="#" class="read-more">
+              Read More →
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+    <section class="categories">
+
+      <div class="section-header">
+        <h2>Explore AM News</h2>
+      </div>
+
+      <div class="category-grid">
+
+        <a href="#" class="category-box">
+          Politics
+        </a>
+
+        <a href="#" class="category-box">
+          Community
+        </a>
+
+        <a href="#" class="category-box">
+          Business
+        </a>
+
+        <a href="#" class="category-box">
+          Sports
+        </a>
+
+      </div>
+
+    </section>
 
   </main>
 
+
+  <!-- FOOTER -->
   <footer>
-    © 2026 AM News. All rights reserved.
+
+    <div class="footer-inner">
+
+      <div>
+        <h3>AM NEWS</h3>
+
+        <p>
+          AM News is a Philippine news platform
+          providing news, current events and
+          important public updates.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+
+        <a href="#">Home</a>
+        <a href="#">News</a>
+        <a href="#">Politics</a>
+        <a href="#">Community</a>
+      </div>
+
+      <div>
+        <h3>Sections</h3>
+
+        <a href="#">Business</a>
+        <a href="#">Sports</a>
+        <a href="#">Opinion</a>
+        <a href="#">About AM News</a>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 AM News. All rights reserved.
+    </div>
+
   </footer>
 
 </body>
-  </html>
+</html>
