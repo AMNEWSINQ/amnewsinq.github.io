@@ -2,7 +2,8 @@
 ---
 layout: post
 title: "Trump Reportedly Presents Elon Musk With National Medal of Science"
-date: 2026-10-09 09:00:00 +0800
+date: date: 2025-06-15 09:00:00 +0800
+
 categories: [News, Science, Technology, Politics]
 tags: [Donald Trump, Elon Musk, STEM, American Innovation, 2026 Midterms]
 ---
